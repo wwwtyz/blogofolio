@@ -3,6 +3,7 @@ import React from 'react';
 import Footer from 'components/Footer/Footer';
 import Header from 'components/Header/Header';
 import { PostCard } from 'components/PostCard/PostCard';
+import { AppThemeProvider } from 'components/AppThemeProvider/AppThemeProvider';
 
 const PostTemp = {
   id: 10,
@@ -15,11 +16,11 @@ const PostTemp = {
 };
 function App() {
   return (
-    <div>
+    <AppThemeProvider>
       <Header />
       <PostCard post={PostTemp} />
       <Footer />
-    </div>
+    </AppThemeProvider>
   );
 }
 
