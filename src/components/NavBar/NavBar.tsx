@@ -1,6 +1,7 @@
-import React, { FC, useEffect, useRef, useState } from 'react';
+import { AppRoute } from 'enums/router';
+import React, { useRef } from 'react';
 
-import { NavContainer } from './navbar.styled';
+import { NavContainer, SideNavLink } from './navbar.styled';
 
 export function Navbar({ isMenuOpen }: { isMenuOpen: boolean }) {
   const navbarRef = useRef<HTMLDivElement>(null);
@@ -10,8 +11,9 @@ export function Navbar({ isMenuOpen }: { isMenuOpen: boolean }) {
       ref={navbarRef}
       isMenuOpen={isMenuOpen}
     >
-      <a href={'/'}>Sign In</a>
-      <a href={'/'}>Sign Up</a>
+      <SideNavLink to={AppRoute.Main}>Main</SideNavLink>
+      <SideNavLink to={AppRoute.Login}>Sign In</SideNavLink>
+      <SideNavLink to={AppRoute.Register}>Sign Up</SideNavLink>
     </NavContainer>
   );
 }

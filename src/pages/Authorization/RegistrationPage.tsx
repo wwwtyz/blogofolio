@@ -10,6 +10,7 @@ import {
   PrimaryLink,
   SecondaryLink
 } from './authorization.styled';
+import { AppRoute } from 'enums/router';
 
 export interface UserRegistrationData {
   username: string;
@@ -35,7 +36,7 @@ function RegistrationPage() {
       }}
     >
       <ContentContainer>
-        <SecondaryLink href="/">Back to home</SecondaryLink>
+        <SecondaryLink to={AppRoute.Main}>Back to home</SecondaryLink>
         <h1>Sign Up</h1>
         <FormContainer>
           <Input
@@ -83,7 +84,7 @@ function RegistrationPage() {
             <FormButton buttonStyle={ButtonStyle.Primary}>Sign In</FormButton>
             <div>
               Already have an account?
-              <PrimaryLink href={'/'}> Sign In</PrimaryLink>
+              <PrimaryLink to={AppRoute.Login}> Sign In</PrimaryLink>
             </div>
           </ConfirmSection>
         </FormContainer>

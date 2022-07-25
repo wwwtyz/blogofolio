@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
-export const PrimaryLink = styled.a`
+export const PrimaryLink = styled(Link)`
   color: var(--bs-color-primary);
   font-size: var(--bs-body-2-font-size);
   font-weight: var(--bs-body-2-font-weight);
@@ -12,7 +12,7 @@ export const PrimaryLink = styled.a`
   }
 `;
 
-export const SecondaryLink = styled.a`
+export const SecondaryLink = styled(Link)`
   color: var(--bs-color-text-disabled);
 
   :hover {

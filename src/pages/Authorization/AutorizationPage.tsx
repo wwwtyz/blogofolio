@@ -11,6 +11,7 @@ import {
   SecondaryLink
 } from './authorization.styled';
 import { UserRegistrationData } from './RegistrationPage';
+import { AppRoute } from 'enums/router';
 
 function AutorizationPage() {
   const [formData, setFormData] = React.useState<UserRegistrationData>({
@@ -29,7 +30,7 @@ function AutorizationPage() {
       }}
     >
       <ContentContainer>
-        <SecondaryLink href="/">Back to home</SecondaryLink>
+        <SecondaryLink to={AppRoute.Main}>Back to home</SecondaryLink>
         <h1>Sign In</h1>
         <FormContainer>
           <Input
@@ -55,11 +56,11 @@ function AutorizationPage() {
             <FormButton buttonStyle={ButtonStyle.Primary}>Sign In</FormButton>
             <div>
               Forgot password?
-              <PrimaryLink href={'/'}> Reset Password</PrimaryLink>
+              <PrimaryLink to={'/'}> Reset Password</PrimaryLink>
             </div>
             <div>
               Don't have an aacount?
-              <PrimaryLink href={'/'}> Sign Up</PrimaryLink>
+              <PrimaryLink to={AppRoute.Register}> Sign Up</PrimaryLink>
             </div>
           </ConfirmSection>
         </FormContainer>
