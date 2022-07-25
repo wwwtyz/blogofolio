@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 
 import Button from 'components/Button/Button';
 import ThumbsUp from '../../assets/svg/post/Icon-Thumbs-Up.svg';
@@ -8,27 +8,24 @@ import More from '../../assets/svg/post/Icon-More-Horizontal.svg';
 import {
   PostContainer,
   PostControls,
+  PostDate,
   PostImage,
+  PostTitle,
   ThumbsContainer
 } from './postCard.styled';
+import { Post } from './PostList';
 
-interface Post {
-  id: number;
-  image?: string;
-  text: string;
-  date: string;
-  lesson_num: number;
-  title: string;
-  author: number;
+interface PostItemProps {
+  post: Post;
 }
 
-export const PostCard = ({ post }: { post: Post }) => {
+const PostCard: FC<PostItemProps> = ({ post }) => {
   const [likes, setLikes] = useState(0);
   return (
     <PostContainer>
       <PostImage src={post.image} />
-      <p>date</p>
-      <h2>{post.title}</h2>
+      <PostDate>{post.date}</PostDate>
+      <PostTitle>{post.title}</PostTitle>
       <PostControls>
         <ThumbsContainer>
           <Button
@@ -49,3 +46,4 @@ export const PostCard = ({ post }: { post: Post }) => {
     </PostContainer>
   );
 };
+export default PostCard;
