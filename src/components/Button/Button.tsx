@@ -8,8 +8,9 @@ export enum ButtonStyle {
 }
 export interface ButtonType {
   buttonStyle?: ButtonStyle;
-  svg: string;
+  svg?: string;
   onClick?: () => void;
+  children?: React.ReactNode;
 }
 
 const Button: React.FC<ButtonType> = ({ svg, onClick, ...props }) => {

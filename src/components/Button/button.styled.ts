@@ -18,7 +18,7 @@ export const getAppearanceStyles = ({
 
   if (buttonStyle === ButtonStyle.Secondary) {
     return css`
-      background-color: var(--bs-color-bg-light);
+      background-color: #5360cd;
       color: var(--bs-color-text);
 
       &:hover:not(:disabled) {
@@ -26,15 +26,33 @@ export const getAppearanceStyles = ({
       }
     `;
   }
+  return css`
+    background-color: var(--bs-color-primary);
+    color: var(--bs-color-text-invert);
+
+    &:hover:not(:disabled) {
+      background-color: var(--bs-color-primary-2);
+    }
+  `;
 };
 export const ButtonContainer = styled.button<ButtonType>`
-  padding: 1rem;
-  background: transparent;
   border: none;
-  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--bs-spacing-8);
+  padding: var(--bs-spacing-7) var(--bs-spacing-5);
+  font-weight: var(--bs-subline-font-weight);
+  font-size: var(--bs-subline-font-size);
+  line-height: var(--bs-subline-line-height);
+  user-select: none;
+  justify-items: center;
+  width: fit-content;
 
-  &:hover {
-    cursor: pointer;
-    background-color: #5360cd;
+  ${getAppearanceStyles};
+
+  &:disabled {
+    background-color: var(--bs-color-bg-disabled);
+    color: var(--bs-color-text-disabled);
+    pointer-events: none;
   }
 `;

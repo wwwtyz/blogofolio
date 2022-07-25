@@ -10,8 +10,8 @@ export function Navbar({ isMenuOpen }: { isMenuOpen: boolean }) {
       ref={navbarRef}
       isMenuOpen={isMenuOpen}
     >
-      <a href={'/'}>First Link</a>
-      <a href={'/'}>Second Link</a>
+      <a href={'/'}>Sign In</a>
+      <a href={'/'}>Sign Up</a>
     </NavContainer>
   );
 }
