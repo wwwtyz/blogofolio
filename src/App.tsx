@@ -4,6 +4,7 @@ import Footer from 'components/Footer/Footer';
 import Header from 'components/Header/Header';
 import { PostCard } from 'components/PostCard/PostCard';
 import { AppThemeProvider } from 'components/AppThemeProvider/AppThemeProvider';
+import { Navbar } from 'components/NavBar/NavBar';
 
 const PostTemp = {
   id: 10,
@@ -15,9 +16,11 @@ const PostTemp = {
   author: 123
 };
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   return (
     <AppThemeProvider>
       <Header />
+      <Navbar isMenuOpen={false}></Navbar>
       <PostCard post={PostTemp} />
       <Footer />
     </AppThemeProvider>

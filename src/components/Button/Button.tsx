@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonContainer, ButtonImage } from './button.styled';
+import { ButtonContainer } from './button.styled';
 
 export enum ButtonStyle {
   Primary = 'primary',
@@ -8,23 +8,23 @@ export enum ButtonStyle {
 }
 export interface ButtonType {
   buttonStyle?: ButtonStyle;
-  image?: string;
+  svg: string;
+  onClick?: () => void;
 }
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonType>(
-  ({ image, ...props }) => (
-    <ButtonContainer {...props}>
-      <ButtonImage src={image} />
+const Button: React.FC<ButtonType> = ({ svg, onClick, ...props }) => {
+  return (
+    <ButtonContainer
+      svg={''}
+      onClick={onClick}
+      {...props}
+    >
+      <img
+        src={svg}
+        alt="svg"
+      />
     </ButtonContainer>
-  )
-);
-
-// const Button = <HTMLButtonElement, ButtonType>({ image, ...props }) => {
-//   return (
-//     <ButtonContainer {...props}>
-//       <ButtonImage src={image} />
-//     </ButtonContainer>
-//   );
-// };
+  );
+};
 
 export default Button;

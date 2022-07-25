@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Button from 'components/Button/Button';
 import ThumbsUp from '../../assets/svg/post/Icon-Thumbs-Up.svg';
@@ -22,10 +22,8 @@ interface Post {
   author: number;
 }
 
-const getDate = () => {};
-
 export const PostCard = ({ post }: { post: Post }) => {
-  let counter = 0;
+  const [likes, setLikes] = useState(0);
   return (
     <PostContainer>
       <PostImage src={post.image} />
@@ -33,13 +31,19 @@ export const PostCard = ({ post }: { post: Post }) => {
       <h2>{post.title}</h2>
       <PostControls>
         <ThumbsContainer>
-          <Button image={ThumbsUp} />
-          <p>{counter}</p>
-          <Button image={ThumbsDown} />
+          <Button
+            svg={ThumbsUp}
+            onClick={() => setLikes(likes + 1)}
+          />
+          <div style={{ margin: 'auto' }}>{likes}</div>
+          <Button
+            svg={ThumbsDown}
+            onClick={() => setLikes(likes - 1)}
+          />
         </ThumbsContainer>
         <div>
-          <Button image={Bookmark} />
-          <Button image={More} />
+          <Button svg={Bookmark} />
+          <Button svg={More} />
         </div>
       </PostControls>
     </PostContainer>
